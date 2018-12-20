@@ -12,13 +12,13 @@ services:
       - drupal-themes:/var/www/html/themes
       - drupal-sites:/var/www/html/sites
   postgres:
-    image: postgres:9.6
+    image: postgres
     secrets:
       - psql_user
       - psql_password
     environment:
       POSTGRES_USER_FILE: /run/secrets/psql_user
-      POSTGRES_USER_FILE: /run/secrets/psql_password
+      POSTGRES_PASSWORD_FILE: /run/secrets/psql_password
     volumes:
       - drupal-data:/var/lib/postgresql/data
 secrets:
